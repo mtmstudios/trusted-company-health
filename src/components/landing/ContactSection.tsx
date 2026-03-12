@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Mail, Phone } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import davidImg from "@/assets/david-felzmann.jpeg";
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", firma: "", email: "", telefon: "", nachricht: "" });
@@ -18,7 +19,7 @@ const ContactSection = () => {
       <div className="section-container grid lg:grid-cols-2 gap-12">
         <AnimatedSection>
           <div className="bg-light-gray rounded-2xl p-8">
-            <div className="w-16 h-16 rounded-full bg-light-teal mb-4" />
+            <img src={davidImg} alt="David Felzmann" className="w-20 h-20 rounded-full object-cover object-top mb-4" />
             <h3 className="text-lg font-semibold mb-1">David Felzmann</h3>
             <p className="text-sm text-muted-foreground mb-4">Geschäftsführer & Beratung</p>
             <div className="space-y-2">

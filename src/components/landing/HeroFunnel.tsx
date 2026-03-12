@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Award, Users, CheckCircle, Lock } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import officeImg from "@/assets/office-building.jpeg";
 
 const trustBadges = [
   { icon: Award, text: "Über 10 Jahre Erfahrung" },
@@ -40,8 +41,9 @@ const HeroFunnel = () => {
   };
 
   return (
-    <section className="pt-24 lg:pt-32 pb-16 lg:pb-24 bg-gradient-to-b from-background to-light-gray">
-      <div className="section-container grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section className="pt-24 lg:pt-32 pb-16 lg:pb-24 bg-gradient-to-b from-background to-light-gray relative overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: `url(${officeImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+      <div className="section-container grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         {/* Left */}
         <AnimatedSection>
           <span className="inline-flex items-center gap-1.5 rounded-full bg-light-teal px-4 py-1.5 text-sm font-medium text-primary-teal mb-6">
