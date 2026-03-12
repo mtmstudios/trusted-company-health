@@ -1,5 +1,6 @@
 import { Mail } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import teamGroupImg from "@/assets/team-group.jpeg";
 
 const team = [
   { name: "David Felzmann", role: "Geschäftsführer & Beratung", email: "david.felzmann@wuerttembergische.de" },

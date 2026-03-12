@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Mail, Phone } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import davidImg from "@/assets/david-felzmann.jpeg";
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", firma: "", email: "", telefon: "", nachricht: "" });
