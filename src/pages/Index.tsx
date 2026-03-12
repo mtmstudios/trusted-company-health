@@ -1,14 +1,33 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from "@/components/landing/Navbar";
+import HeroFunnel from "@/components/landing/HeroFunnel";
+import SocialProofBar from "@/components/landing/SocialProofBar";
+import BenefitPillars from "@/components/landing/BenefitPillars";
+import HowItWorks from "@/components/landing/HowItWorks";
+import AdvantagesGrid from "@/components/landing/AdvantagesGrid";
+import Testimonials from "@/components/landing/Testimonials";
+import CostCalculator from "@/components/landing/CostCalculator";
+import TeamSection from "@/components/landing/TeamSection";
+import FAQSection from "@/components/landing/FAQSection";
+import FinalCTA from "@/components/landing/FinalCTA";
+import ContactSection from "@/components/landing/ContactSection";
+import Footer from "@/components/landing/Footer";
 
-const Index = () => {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
-};
+const Index = () => (
+  <>
+    <Navbar />
+    <HeroFunnel />
+    <SocialProofBar />
+    <BenefitPillars />
+    <HowItWorks />
+    <AdvantagesGrid />
+    <Testimonials />
+    <CostCalculator />
+    <TeamSection />
+    <FAQSection />
+    <FinalCTA />
+    <ContactSection />
+    <Footer />
+  </>
+);
 
 export default Index;
