@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Award, Users, CheckCircle, Lock } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import officeImg from "@/assets/office-building.jpeg";
 
 const trustBadges = [
   { icon: Award, text: "Über 10 Jahre Erfahrung" },
