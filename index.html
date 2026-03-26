@@ -100,7 +100,7 @@
 
     /* FAQ */
     .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.2s ease; }
-    .faq-content.open { max-height: 300px; }
+    .faq-content.open { max-height: 600px; }
     .faq-chevron { transition: transform 0.3s ease; }
     .faq-chevron.open { transform: rotate(180deg); }
 
@@ -142,6 +142,24 @@
 
     /* Number counter animation */
     .counter { font-variant-numeric: tabular-nums; }
+
+    /* === MOBILE === */
+    /* Prevent iOS input font-zoom (triggers when input font-size < 16px) */
+    @media (max-width: 767px) {
+      .form-input { font-size: 16px; }
+      .option-btn { font-size: 16px; padding: 12px 16px; }
+    }
+    /* Disable hover lift on touch devices */
+    @media (hover: none) {
+      .benefit-card:hover { transform: none !important; box-shadow: none !important; }
+      .testimonial-card:hover { transform: none !important; box-shadow: none !important; }
+    }
+    /* Very small screens: shrink nav wordmark */
+    @media (max-width: 360px) {
+      .nav-wordmark { font-size: 11px; }
+    }
+    /* Ensure images never overflow */
+    img, video { max-width: 100%; height: auto; }
   </style>
 </head>
 <body class="bg-white">
@@ -159,7 +177,7 @@
           <path d="M18 4L3 10V19C3 28 9.8 36.8 18 39.5C26.2 36.8 33 28 33 19V10L18 4Z" fill="#00b7b1" opacity="0.18"/>
         </svg>
         <!-- Wordmark -->
-        <span class="font-bold text-sm leading-none" style="color:#111827; letter-spacing:-0.01em">meine-zusatzversicherung<span style="color:var(--teal-primary)">.de</span></span>
+        <span class="nav-wordmark font-bold text-sm leading-none" style="color:#111827; letter-spacing:-0.01em">meine-zusatzversicherung<span style="color:var(--teal-primary)">.de</span></span>
       </a>
 
       <!-- Desktop Nav -->
@@ -201,18 +219,18 @@
 
 <!-- ===== HERO ===== -->
 <section class="min-h-screen flex items-center pt-16" style="background: linear-gradient(135deg, #f8fffe 0%, var(--teal-pale) 50%, #e8f4f5 100%);">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 w-full">
-    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-24 w-full">
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
       <!-- LEFT: Copy -->
       <div class="fade-up visible" style="animation-delay:0s">
         <!-- Trust pill -->
         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-6" style="background:var(--teal-light); color:var(--teal-primary)">
           <svg width="15" height="15" fill="none" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          Württembergische Versicherung Partner
+          Partner der Württembergischen Versicherung
         </div>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-5xl font-bold leading-tight mb-6" style="color:var(--navy)">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4 sm:mb-6" style="color:var(--navy)">
           Betriebliche<br>
           <span style="color:var(--teal-primary)">Krankenversicherung</span><br>
           für Ihr Unternehmen
@@ -251,11 +269,11 @@
         </div>
         <!-- Hero CTAs -->
         <div class="flex flex-col sm:flex-row gap-3 mt-2">
-          <a href="#kontakt" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-bold text-white cursor-pointer transition-all duration-200" style="background:var(--teal-primary)" onmouseover="this.style.background='var(--teal-secondary)'" onmouseout="this.style.background='var(--teal-primary)'">
+          <a href="#kontakt" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-bold text-white cursor-pointer transition-all duration-200" style="background:var(--teal-primary)" onmouseover="this.style.background='var(--teal-secondary)'" onmouseout="this.style.background='var(--teal-primary)'">
             Jetzt kostenlos beraten lassen
             <svg width="16" height="16" fill="none" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="tel:+4971533927" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold cursor-pointer transition-all duration-200" style="border:2px solid var(--teal-primary); color:var(--teal-primary); background:transparent;" onmouseover="this.style.background='var(--teal-light)'" onmouseout="this.style.background='transparent'">
+          <a href="tel:+4971533927" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold cursor-pointer transition-all duration-200" style="border:2px solid var(--teal-primary); color:var(--teal-primary); background:transparent;" onmouseover="this.style.background='var(--teal-light)'" onmouseout="this.style.background='transparent'">
             <svg width="16" height="16" fill="none" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.5 12 19.79 19.79 0 011.5 3.37 2 2 0 013.49 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.5a16 16 0 006.29 6.29l1.06-1.06a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
             07153-39271
           </a>
@@ -264,7 +282,7 @@
 
       <!-- RIGHT: Click-Through Funnel -->
       <div class="fade-up visible" style="animation-delay:0.15s">
-        <div class="bg-white rounded-2xl p-7 sm:p-8" style="box-shadow: 0 8px 48px rgba(0,116,125,0.14);">
+        <div class="bg-white rounded-2xl p-5 sm:p-8" style="box-shadow: 0 8px 48px rgba(0,116,125,0.14);">
 
           <!-- Progress dots -->
           <div class="flex items-center gap-2 mb-6" aria-label="Fortschritt" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3">
@@ -429,13 +447,13 @@
         <img src="860000431_2718400319cb0066c1f353e655f35e42.jpeg"
              alt="Das Team von Meine Zusatzversicherung – David Felzmann und sein Beraterteam"
              class="w-full rounded-2xl object-cover"
-             style="box-shadow: 0 12px 48px rgba(0,116,125,0.18); aspect-ratio: 4/3;"
+             style="box-shadow: 0 12px 48px rgba(0,116,125,0.18); aspect-ratio: 4/3; max-height: 320px;"
              loading="lazy">
       </div>
       <div class="fade-up order-1 lg:order-2">
         <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color:var(--teal-secondary)">Persönliche Beratung</p>
         <h2 id="team-heading" class="text-3xl sm:text-4xl font-bold mb-4" style="color:var(--navy)">Kein Call Center.<br>Echte Menschen.</h2>
-        <p class="text-lg leading-relaxed mb-6" style="color:var(--dark)">Unser Team steht Ihnen persönlich zur Verfügung – von der ersten Anfrage bis zur laufenden Betreuung. Als Württembergische Versicherung Partner bringen wir lokale Beratung mit überregionaler Stärke.</p>
+        <p class="text-lg leading-relaxed mb-6" style="color:var(--dark)">Unser Team steht Ihnen persönlich zur Verfügung – von der ersten Anfrage bis zur laufenden Betreuung. Als Partner der Württembergischen Versicherung bringen wir lokale Beratung mit überregionaler Stärke.</p>
         <div class="flex flex-col gap-3 mb-8">
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center" style="background:var(--teal-light)">
@@ -463,43 +481,43 @@
       </div>
     </div>
     <!-- Individual team member cards -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="fade-up text-center p-6 rounded-2xl" style="background:var(--teal-pale)">
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
+      <div class="fade-up text-center p-3 sm:p-6 rounded-2xl" style="background:var(--teal-pale)">
         <img src="860000431_0927276f4305c7a3c794b1f02d202b02.jpeg"
              alt="David Felzmann – Geschäftsführer"
-             class="w-20 h-20 rounded-full object-cover object-top mx-auto mb-4"
+             class="w-14 h-14 sm:w-20 sm:h-20 rounded-full object-cover object-top mx-auto mb-3"
              style="box-shadow: 0 4px 16px rgba(0,116,125,0.22);"
              loading="lazy">
         <h3 class="font-bold text-base mb-1" style="color:var(--navy)">David Felzmann</h3>
         <p class="text-xs font-semibold uppercase tracking-wide mb-3" style="color:var(--teal-secondary)">Geschäftsführer &amp; Beratung</p>
         <a href="mailto:david.felzmann@wuerttembergische.de" class="text-xs hover:underline cursor-pointer py-2 inline-block" style="color:var(--teal-primary)">david.felzmann@wuerttembergische.de</a>
       </div>
-      <div class="fade-up text-center p-6 rounded-2xl" style="background:var(--teal-pale)">
-        <div class="w-20 h-20 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4" style="background:var(--teal-primary)">ES</div>
+      <div class="fade-up text-center p-3 sm:p-6 rounded-2xl" style="background:var(--teal-pale)">
+        <div class="w-14 h-14 sm:w-20 sm:h-20 rounded-full flex items-center justify-center text-white text-xl sm:text-2xl font-bold mx-auto mb-3" style="background:var(--teal-primary)">ES</div>
         <h3 class="font-bold text-base mb-1" style="color:var(--navy)">Elfi Sachs</h3>
         <p class="text-xs font-semibold uppercase tracking-wide mb-3" style="color:var(--teal-secondary)">Beratung</p>
         <a href="mailto:elfi.sachs@wuerttembergische.de" class="text-xs hover:underline cursor-pointer py-2 inline-block" style="color:var(--teal-primary)">elfi.sachs@wuerttembergische.de</a>
       </div>
-      <div class="fade-up text-center p-6 rounded-2xl" style="background:var(--teal-pale)">
-        <div class="w-20 h-20 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4" style="background:var(--teal-primary)">CH</div>
+      <div class="fade-up text-center p-3 sm:p-6 rounded-2xl" style="background:var(--teal-pale)">
+        <div class="w-14 h-14 sm:w-20 sm:h-20 rounded-full flex items-center justify-center text-white text-xl sm:text-2xl font-bold mx-auto mb-3" style="background:var(--teal-primary)">CH</div>
         <h3 class="font-bold text-base mb-1" style="color:var(--navy)">Claudia Haidle</h3>
         <p class="text-xs font-semibold uppercase tracking-wide mb-3" style="color:var(--teal-secondary)">Büroleitung</p>
         <span class="text-xs" style="color:#9ca3af">Büroorganisation &amp; Koordination</span>
       </div>
-      <div class="fade-up text-center p-6 rounded-2xl" style="background:var(--teal-pale)">
-        <div class="w-20 h-20 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4" style="background:var(--navy)">MB</div>
+      <div class="fade-up text-center p-3 sm:p-6 rounded-2xl" style="background:var(--teal-pale)">
+        <div class="w-14 h-14 sm:w-20 sm:h-20 rounded-full flex items-center justify-center text-white text-xl sm:text-2xl font-bold mx-auto mb-3" style="background:var(--navy)">MB</div>
         <h3 class="font-bold text-base mb-1" style="color:var(--navy)">Michaela Bäurle</h3>
         <p class="text-xs font-semibold uppercase tracking-wide mb-3" style="color:var(--teal-secondary)">Vertriebsunterstützung</p>
         <a href="mailto:michaela.bäurle@wuerttembergische.de" class="text-xs hover:underline cursor-pointer py-2 inline-block" style="color:var(--teal-primary)">michaela.bäurle@wuerttembergische.de</a>
       </div>
-      <div class="fade-up text-center p-6 rounded-2xl" style="background:var(--teal-pale)">
-        <div class="w-20 h-20 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4" style="background:var(--navy)">FF</div>
+      <div class="fade-up text-center p-3 sm:p-6 rounded-2xl" style="background:var(--teal-pale)">
+        <div class="w-14 h-14 sm:w-20 sm:h-20 rounded-full flex items-center justify-center text-white text-xl sm:text-2xl font-bold mx-auto mb-3" style="background:var(--navy)">FF</div>
         <h3 class="font-bold text-base mb-1" style="color:var(--navy)">Frank Frey</h3>
         <p class="text-xs font-semibold uppercase tracking-wide mb-3" style="color:var(--teal-secondary)">Vertriebsunterstützung</p>
         <a href="mailto:service.frey@wuerttembergische.de" class="text-xs hover:underline cursor-pointer py-2 inline-block" style="color:var(--teal-primary)">service.frey@wuerttembergische.de</a>
       </div>
-      <div class="fade-up text-center p-6 rounded-2xl" style="background:var(--teal-pale)">
-        <div class="w-20 h-20 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4" style="background:var(--navy)">BZ</div>
+      <div class="fade-up text-center p-3 sm:p-6 rounded-2xl" style="background:var(--teal-pale)">
+        <div class="w-14 h-14 sm:w-20 sm:h-20 rounded-full flex items-center justify-center text-white text-xl sm:text-2xl font-bold mx-auto mb-3" style="background:var(--navy)">BZ</div>
         <h3 class="font-bold text-base mb-1" style="color:var(--navy)">Bastian Zaremba</h3>
         <p class="text-xs font-semibold uppercase tracking-wide mb-3" style="color:var(--teal-secondary)">Auszubildender</p>
         <a href="mailto:bastian.zaremba@wuerttembergische.de" class="text-xs hover:underline cursor-pointer py-2 inline-block" style="color:var(--teal-primary)">bastian.zaremba@wuerttembergische.de</a>
