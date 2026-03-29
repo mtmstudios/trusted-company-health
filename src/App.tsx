@@ -5,6 +5,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import Impressum from "./pages/Impressum.tsx";
+import Datenschutz from "./pages/Datenschutz.tsx";
+import Barrierefreiheit from "./pages/Barrierefreiheit.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 
@@ -20,6 +23,9 @@ const App = () => (
         <CookieBanner />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/impressum" element={<Impressum />} />
+          <Route path="/datenschutz" element={<Datenschutz />} />
+          <Route path="/barrierefreiheit" element={<Barrierefreiheit />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
