@@ -1,5 +1,4 @@
 import { Phone, Mail } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const Footer = () => (
   <footer className="bg-dark-navy pt-16 pb-8">
