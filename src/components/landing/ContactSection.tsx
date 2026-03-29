@@ -20,8 +20,8 @@ const ContactSection = () => {
         <AnimatedSection>
           <div className="bg-light-gray rounded-2xl p-8">
             <img src={davidImg} alt="David Felzmann" className="w-20 h-20 rounded-full object-cover object-top mb-4" />
-            <h3 className="text-lg font-semibold mb-1">David Felzmann</h3>
-            <p className="text-sm text-muted-foreground mb-4">Geschäftsführer & Beratung</p>
+             <h3 className="text-lg font-semibold mb-1 text-center">David Felzmann</h3>
+             <p className="text-sm text-muted-foreground mb-4 text-center">Geschäftsführer & Beratung</p>
             <div className="space-y-2">
               <a href="mailto:david.felzmann@wuerttembergische.de" className="flex items-center gap-2 text-sm text-primary-teal hover:underline">
                 <Mail size={14} /> david.felzmann@wuerttembergische.de
