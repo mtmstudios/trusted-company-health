@@ -21,12 +21,60 @@ jobs:
           bun run build
           echo "DirectoryIndex index.html index.php" > dist/.htaccess
 
-      - uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-        with:
-          server: ssh.frotheim.project.host
-          port: 22
-          username: sftp-kq7vun@p-aerefh
-          password: ${{ secrets.MITTWALD_SFTP_PASSWORD }}
-          local_path: ./dist/*
-          remote_path: /meinezusatzversicher
-          sftp_only: true
+      - name: Install paramiko
+        run: pip install paramiko
+
+      - name: Deploy via SFTP
+        env:
+          SFTP_HOST: ssh.frotheim.project.host
+          SFTP_PORT: "22"
+          SFTP_USER: sftp-kq7vun@p-aerefh
+          SFTP_PASS: ${{ secrets.MITTWALD_SFTP_PASSWORD }}
+          REMOTE_PATH: /meinezusatzversicher
+          LOCAL_PATH: dist
+        run: |
+          python3 << 'PYEOF'
+          import os
+          import paramiko
+          import socket
+
+          host = os.environ['SFTP_HOST']
+          port = int(os.environ['SFTP_PORT'])
+          user = os.environ['SFTP_USER']
+          password = os.environ['SFTP_PASS']
+          remote_base = os.environ['REMOTE_PATH']
+          local_base = os.environ['LOCAL_PATH']
+
+          sock = socket.socket()
+          sock.connect((host, port))
+          transport = paramiko.Transport(sock)
+          transport.start_client()
+          transport.auth_password(user, password)
+          sftp = paramiko.SFTPClient.from_transport(transport)
+
+          def mkdir_p(sftp, path):
+              parts = path.strip('/').split('/')
+              current = ''
+              for part in parts:
+                  current += '/' + part
+                  try:
+                      sftp.stat(current)
+                  except FileNotFoundError:
+                      sftp.mkdir(current)
+
+          def upload_dir(sftp, local_dir, remote_dir):
+              mkdir_p(sftp, remote_dir)
+              for item in os.listdir(local_dir):
+                  local_path = os.path.join(local_dir, item)
+                  remote_path = remote_dir + '/' + item
+                  if os.path.isdir(local_path):
+                      upload_dir(sftp, local_path, remote_path)
+                  else:
+                      print(f'Uploading {remote_path}')
+                      sftp.put(local_path, remote_path)
+
+          upload_dir(sftp, local_base, remote_base)
+          sftp.close()
+          transport.close()
+          print('Deploy complete!')
+          PYEOF
