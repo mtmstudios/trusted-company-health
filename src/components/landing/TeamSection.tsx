@@ -19,7 +19,7 @@ const TeamSection = () => (
         <p className="text-center text-foreground mb-12">Persönliche Beratung – kein Call Center</p>
       </AnimatedSection>
       <div className="mb-12 flex justify-center">
-        <img src={teamGroupImg} alt="Unser Team" className="rounded-2xl shadow-md max-h-[400px] object-cover w-full max-w-4xl" />
+        <img src={teamGroupImg} alt="Unser Team" className="rounded-2xl shadow-md w-full max-w-4xl object-cover object-top" style={{ aspectRatio: "16/7" }} />
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
         {team.map((m, i) => (
