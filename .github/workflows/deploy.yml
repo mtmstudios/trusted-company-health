@@ -19,6 +19,8 @@ jobs:
         run: |
           bun install
           bun run build
+          echo "DirectoryIndex index.html index.php" > dist/.htaccess
+
       - uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server: ssh.frotheim.project.host
@@ -26,5 +28,5 @@ jobs:
           username: sftp-kq7vun@p-aerefh
           password: ${{ secrets.MITTWALD_SFTP_PASSWORD }}
           local_path: ./dist/*
-          remote_path: /html
+          remote_path: /meinezusatzversicher
           sftp_only: true
