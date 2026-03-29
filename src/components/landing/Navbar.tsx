@@ -27,8 +27,15 @@ const Navbar = () => {
       }`}
     >
       <div className="section-container flex items-center justify-between h-16 lg:h-[72px]">
-        <Link to="/" className="font-semibold text-dark-navy text-sm lg:text-base whitespace-nowrap">
-          Ihre betriebliche Krankenversicherung
+        <Link to="/" className="flex items-center gap-2.5 flex-shrink-0" aria-label="Zur Startseite">
+          <svg width="32" height="38" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M18 0L0 7V19C0 29.5 7.8 39.3 18 42C28.2 39.3 36 29.5 36 19V7L18 0Z" fill="hsl(var(--primary-teal))"/>
+            <path d="M18 0L0 7V13C0 13 6 11 18 11C30 11 36 13 36 13V7L18 0Z" fill="#005a60"/>
+            <path d="M18 4L3 10V19C3 28 9.8 36.8 18 39.5C26.2 36.8 33 28 33 19V10L18 4Z" fill="hsl(var(--secondary-teal))" opacity="0.18"/>
+          </svg>
+          <span className="font-bold text-sm leading-none text-dark-navy" style={{ letterSpacing: "-0.01em" }}>
+            meine-zusatzversicherung<span className="text-primary">.de</span>
+          </span>
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
