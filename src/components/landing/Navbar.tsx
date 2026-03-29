@@ -65,7 +65,7 @@ const Navbar = () => {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden text-dark-navy absolute right-4"
+          className="lg:hidden text-dark-navy absolute left-4"
           aria-label="Menu"
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}

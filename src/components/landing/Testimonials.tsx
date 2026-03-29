@@ -28,16 +28,16 @@ const Testimonials = () => (
       <div className="grid md:grid-cols-3 gap-8">
         {testimonials.map((t, i) => (
           <AnimatedSection key={t.name} delay={i * 0.1}>
-            <div className="bg-card rounded-2xl card-subtle p-8 h-full flex flex-col">
-              <div className="flex gap-0.5 mb-4">
+            <div className="bg-card rounded-2xl card-subtle p-8 h-full flex flex-col text-center lg:text-left">
+              <div className="flex gap-0.5 mb-4 justify-center lg:justify-start">
                 {[...Array(5)].map((_, j) => (
                   <Star key={j} size={16} className="fill-primary-teal text-primary-teal" />
                 ))}
               </div>
               <p className="text-sm text-foreground italic flex-1 mb-6">"{t.quote}"</p>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 justify-center lg:justify-start">
                 <div className="w-10 h-10 rounded-full bg-light-teal flex-shrink-0" />
-                <div>
+                <div className="text-center lg:text-left">
                   <p className="text-sm font-semibold text-dark-navy">{t.name}</p>
                   <p className="text-xs text-muted-foreground">{t.role}</p>
                 </div>
