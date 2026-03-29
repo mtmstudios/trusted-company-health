@@ -27,3 +27,4 @@ jobs:
           password: ${{ secrets.MITTWALD_SFTP_PASSWORD }}
           local_path: ./dist/*
           remote_path: /html
+          sftp_only: true
