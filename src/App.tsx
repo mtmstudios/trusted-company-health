@@ -10,6 +10,7 @@ import Datenschutz from "./pages/Datenschutz.tsx";
 import Barrierefreiheit from "./pages/Barrierefreiheit.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
+import AccessibilityWidget from "./components/AccessibilityWidget.tsx";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <CookieBanner />
+        <AccessibilityWidget />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/impressum" element={<Impressum />} />
