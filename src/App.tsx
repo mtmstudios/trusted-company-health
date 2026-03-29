@@ -9,6 +9,7 @@ import Datenschutz from "./pages/Datenschutz.tsx";
 import Barrierefreiheit from "./pages/Barrierefreiheit.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
+import ScrollToTop from "./components/ScrollToTop.tsx";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <CookieBanner />
         <Routes>
           <Route path="/" element={<Index />} />
