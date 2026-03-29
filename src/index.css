@@ -113,10 +113,34 @@ html.a11y-large-text {
   font-size: 125%;
 }
 
+html.a11y-xl-text {
+  font-size: 150%;
+}
+
 html.a11y-reduce-motion,
 html.a11y-reduce-motion * {
   animation-duration: 0.01ms !important;
   animation-iteration-count: 1 !important;
   transition-duration: 0.01ms !important;
   scroll-behavior: auto !important;
+}
+
+html.a11y-highlight-links a {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 3px !important;
+}
+
+html.a11y-big-cursor,
+html.a11y-big-cursor * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 2l18 14H13l6 12-4 2-6-12-4 8z' fill='black' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E") 4 2, auto !important;
+}
+
+html.a11y-line-height body {
+  line-height: 2.2 !important;
+}
+html.a11y-line-height p,
+html.a11y-line-height li,
+html.a11y-line-height span {
+  line-height: 2.2 !important;
 }
