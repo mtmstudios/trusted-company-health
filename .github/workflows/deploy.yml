@@ -30,7 +30,7 @@ jobs:
           SFTP_PORT: "22"
           SFTP_USER: sftp-kq7vun@p-aerefh
           SFTP_PASS: ${{ secrets.MITTWALD_SFTP_PASSWORD }}
-          REMOTE_PATH: /meinezusatzversicher
+          REMOTE_PATH: /html/meinezusatzversicher
           LOCAL_PATH: dist
         run: |
           python3 << 'PYEOF'
