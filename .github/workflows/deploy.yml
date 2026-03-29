@@ -19,12 +19,7 @@ jobs:
         run: |
           bun install
           bun run build
-          cat > dist/.htaccess << 'HTEOF'
-Options -MultiViews
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^ index.html [QSA,L]
-HTEOF
+          printf 'Options -MultiViews\nRewriteEngine On\nRewriteCond %%{REQUEST_FILENAME} !-f\nRewriteRule ^ index.html [QSA,L]\n' > dist/.htaccess
 
       - name: Install paramiko
         run: pip install paramiko
@@ -38,7 +33,7 @@ HTEOF
           REMOTE_PATH: /html/meinezusatzversicher
           LOCAL_PATH: dist
         run: |
-          python3 << 'PYEOF'
+          python3 - << 'PYEOF'
           import os
           import paramiko
           import socket
