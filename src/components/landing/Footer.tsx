@@ -1,5 +1,6 @@
 import { Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import { resetCookieConsent } from "@/components/CookieBanner";
 
 const Footer = () => (
   <footer className="bg-dark-navy pt-16 pb-8">
@@ -43,6 +44,7 @@ const Footer = () => (
           <Link to="/datenschutz" className="hover:text-primary-foreground transition-colors">Datenschutz</Link>
           <Link to="/impressum" className="hover:text-primary-foreground transition-colors">Impressum</Link>
           <Link to="/barrierefreiheit" className="hover:text-primary-foreground transition-colors">Barrierefreiheit</Link>
+          <button onClick={resetCookieConsent} className="hover:text-primary-foreground transition-colors cursor-pointer">Cookie-Einstellungen</button>
         </div>
       </div>
     </div>
