@@ -45,6 +45,34 @@ const Datenschutz = () => (
         </section>
 
         <section className="mb-8">
+          <h2 className="text-xl font-semibold text-secondary-foreground mb-3">3a. Datenverarbeitung über n8n (Workflow-Automatisierung)</h2>
+          <p className="text-foreground leading-relaxed mb-4">
+            Zur Verarbeitung von Formularanfragen nutzen wir die selbst gehostete
+            Workflow-Automatisierungsplattform <strong>n8n</strong>. Wenn Sie unser Kontaktformular
+            oder den Beratungsfinder absenden, werden Ihre eingegebenen Daten (Name, E-Mail-Adresse,
+            Telefonnummer, Nachricht sowie ggf. Ihre Auswahl im Beratungsfinder) über eine
+            verschlüsselte HTTPS-Verbindung an unsere n8n-Instanz übermittelt.
+          </p>
+          <p className="text-foreground leading-relaxed mb-4">
+            <strong>Zweck:</strong> Automatisierte Weiterleitung Ihrer Anfrage an unser Beratungsteam
+            sowie ggf. Versand einer Eingangsbestätigung per E-Mail.
+          </p>
+          <p className="text-foreground leading-relaxed mb-4">
+            <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung bzw.
+            Durchführung vorvertraglicher Maßnahmen auf Ihre Anfrage hin).
+          </p>
+          <p className="text-foreground leading-relaxed mb-4">
+            <strong>Serverstandort:</strong> Die n8n-Instanz wird auf Servern innerhalb der
+            Europäischen Union betrieben. Ein Datentransfer in Drittländer findet nicht statt.
+          </p>
+          <p className="text-foreground leading-relaxed">
+            <strong>Speicherdauer:</strong> Die über n8n verarbeiteten Daten werden nach Abschluss
+            der Bearbeitung Ihrer Anfrage gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten
+            entgegenstehen. Workflow-Logs werden nach 30 Tagen automatisch gelöscht.
+          </p>
+        </section>
+
+        <section className="mb-8">
           <h2 className="text-xl font-semibold text-secondary-foreground mb-3">4. Cookies</h2>
           <p className="text-foreground leading-relaxed">
             Diese Website verwendet ausschließlich technisch notwendige Cookies, die für den
