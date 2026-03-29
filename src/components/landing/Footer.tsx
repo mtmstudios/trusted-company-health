@@ -40,6 +40,9 @@ const Footer = () => (
       <div className="flex flex-col sm:flex-row items-center justify-between pt-6 gap-4">
         <p className="text-xs text-primary-foreground/40">© {new Date().getFullYear()} Meine Zusatzversicherung. Alle Rechte vorbehalten.</p>
         <div className="flex gap-4 text-xs text-primary-foreground/40">
+          <Link to="/datenschutz" className="hover:text-primary-foreground transition-colors">Datenschutz</Link>
+          <Link to="/impressum" className="hover:text-primary-foreground transition-colors">Impressum</Link>
+          <Link to="/barrierefreiheit" className="hover:text-primary-foreground transition-colors">Barrierefreiheit</Link>
         </div>
       </div>
     </div>
