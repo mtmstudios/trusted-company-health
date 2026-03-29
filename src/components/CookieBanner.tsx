@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Cookie, Shield } from "lucide-react";
 
-const COOKIE_KEY = "cookie_consent";
+export const COOKIE_KEY = "cookie_consent";
+
+/** Re-show the cookie banner (called from Footer link) */
+export const resetCookieConsent = () => {
+  localStorage.removeItem(COOKIE_KEY);
+  window.dispatchEvent(new Event("cookie-reset"));
+};
 
 const CookieBanner = () => {
   const [visible, setVisible] = useState(false);
@@ -9,6 +16,10 @@ const CookieBanner = () => {
   useEffect(() => {
     const consent = localStorage.getItem(COOKIE_KEY);
     if (!consent) setVisible(true);
+
+    const onReset = () => setVisible(true);
+    window.addEventListener("cookie-reset", onReset);
+    return () => window.removeEventListener("cookie-reset", onReset);
   }, []);
 
   const accept = () => {
@@ -24,29 +35,52 @@ const CookieBanner = () => {
   if (!visible) return null;
 
   return (
-    <div
-      role="dialog"
-      aria-label="Cookie-Einstellungen"
-      aria-modal="false"
-      className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-lg px-4 py-5 sm:px-6"
-    >
-      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between">
-        <p className="text-sm text-gray-700 leading-relaxed max-w-2xl">
-          Diese Website verwendet ausschließlich technisch notwendige Cookies, die für den Betrieb der Website erforderlich sind. Es werden keine Tracking- oder Marketing-Cookies eingesetzt.{" "}
-          <Link to="/datenschutz" className="text-blue-600 hover:underline font-medium">
-            Datenschutzerklärung
-          </Link>
-        </p>
-        <div className="flex gap-3 flex-shrink-0">
+    <div className="fixed inset-0 z-[70] bg-dark-navy/30 backdrop-blur-sm flex items-end justify-center sm:items-end">
+      <div
+        role="dialog"
+        aria-label="Cookie-Einstellungen"
+        aria-modal="true"
+        className="w-full max-w-2xl mx-4 mb-4 sm:mb-6 bg-card border border-border rounded-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-300"
+      >
+        {/* Header */}
+        <div className="flex items-center gap-3 px-6 pt-6 pb-2">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+            <Cookie size={20} className="text-primary" />
+          </div>
+          <div>
+            <h2 className="text-base font-semibold text-secondary-foreground">Cookie-Einstellungen</h2>
+            <p className="text-xs text-muted-foreground">Ihre Privatsphäre ist uns wichtig</p>
+          </div>
+        </div>
+
+        {/* Body */}
+        <div className="px-6 py-4">
+          <div className="flex items-start gap-3 bg-muted/50 rounded-xl p-4 mb-4">
+            <Shield size={16} className="text-primary flex-shrink-0 mt-0.5" />
+            <p className="text-sm text-foreground leading-relaxed">
+              Diese Website verwendet <strong>ausschließlich technisch notwendige Cookies</strong>, die für den
+              Betrieb erforderlich sind. Es werden keine Tracking- oder Marketing-Cookies eingesetzt.
+            </p>
+          </div>
+          <p className="text-xs text-muted-foreground">
+            Weitere Informationen finden Sie in unserer{" "}
+            <Link to="/datenschutz" className="text-primary hover:text-accent font-medium transition-colors">
+              Datenschutzerklärung
+            </Link>.
+          </p>
+        </div>
+
+        {/* Actions */}
+        <div className="flex gap-3 px-6 pb-6">
           <button
             onClick={decline}
-            className="px-4 py-2 text-sm border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors"
+            className="flex-1 px-4 py-2.5 text-sm font-medium border border-border rounded-full text-foreground hover:bg-muted transition-colors duration-200"
           >
             Ablehnen
           </button>
           <button
             onClick={accept}
-            className="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+            className="flex-1 px-4 py-2.5 text-sm font-semibold rounded-full bg-primary text-primary-foreground hover:bg-secondary-teal transition-colors duration-200"
           >
             Akzeptieren
           </button>
