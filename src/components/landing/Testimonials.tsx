@@ -35,9 +35,9 @@ const Testimonials = () => (
                 ))}
               </div>
               <p className="text-sm text-foreground italic flex-1 mb-6">"{t.quote}"</p>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 justify-center lg:justify-start">
                 <div className="w-10 h-10 rounded-full bg-light-teal flex-shrink-0" />
-                <div>
+                <div className="text-center lg:text-left">
                   <p className="text-sm font-semibold text-dark-navy">{t.name}</p>
                   <p className="text-xs text-muted-foreground">{t.role}</p>
                 </div>
