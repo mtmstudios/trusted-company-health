@@ -47,7 +47,7 @@ const BenefitPillars = () => (
               <h3 className="text-lg font-semibold mb-4">{p.title}</h3>
               <ul className="space-y-2.5">
                 {p.points.map((pt) => (
-                  <li key={pt} className="flex items-start gap-2 text-sm text-foreground">
+                  <li key={pt} className="flex items-start gap-2 text-sm text-foreground justify-center lg:justify-start">
                     <span className="text-primary-teal mt-0.5">•</span>
                     {pt}
                   </li>

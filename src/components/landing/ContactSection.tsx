@@ -33,7 +33,7 @@ const ContactSection = () => {
           </div>
         </AnimatedSection>
         <AnimatedSection delay={0.1}>
-          <h2 className="text-2xl font-semibold mb-6">Kontaktieren Sie uns</h2>
+          <h2 className="text-2xl font-semibold mb-6 text-center lg:text-left">Kontaktieren Sie uns</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <input type="text" placeholder="Name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className={inputClass} />
             <input type="text" placeholder="Firmenname" value={form.firma} onChange={(e) => setForm({ ...form, firma: e.target.value })} className={inputClass} />

@@ -19,7 +19,7 @@ const AdvantagesGrid = () => (
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {items.map((item, i) => (
           <AnimatedSection key={item.title} delay={i * 0.07}>
-            <div className="flex gap-4">
+            <div className="flex flex-col items-center text-center lg:flex-row lg:text-left lg:items-start gap-4">
               <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-light-teal flex items-center justify-center">
                 <item.icon size={20} className="text-primary-teal" />
               </div>

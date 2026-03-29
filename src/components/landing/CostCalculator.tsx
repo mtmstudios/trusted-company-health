@@ -11,7 +11,7 @@ const CostCalculator = () => (
           Laut IW Köln kosteten Fehlzeiten Arbeitgeber 51,6 Milliarden Euro. Die bKV beginnt oft bei unter 1% der
           Lohnsumme.
         </p>
-        <div className="flex gap-8">
+        <div className="flex gap-8 justify-center lg:justify-start flex-wrap">
           <div>
             <p className="text-3xl font-bold text-secondary-teal tnum">51,6 Mrd. €</p>
             <p className="text-xs text-primary-foreground/60 mt-1">Kosten durch Fehlzeiten</p>

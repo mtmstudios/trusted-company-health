@@ -46,19 +46,19 @@ const HeroFunnel = () => {
       <div className="section-container grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         {/* Left */}
         <AnimatedSection>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-light-teal px-4 py-1.5 text-sm font-medium text-primary-teal mb-6">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-light-teal px-4 py-1.5 text-sm font-medium text-primary-teal mb-6 lg:mx-0 mx-auto block w-fit text-center">
             ✓ Württembergische Versicherung Partner
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-6 text-center lg:text-left">
             Betriebliche Krankenversicherung für Ihr Unternehmen
           </h1>
-          <p className="text-foreground max-w-xl mb-8 text-base lg:text-lg">
+          <p className="text-foreground max-w-xl mb-8 text-base lg:text-lg text-center lg:text-left mx-auto lg:mx-0">
             Sichern Sie Ihre Mitarbeiter ab – steuer- und sozialabgabefrei. Bereits ab 6&nbsp;€ pro Monat pro
             Mitarbeiter. Ab 3 Mitarbeitenden möglich.
           </p>
           <div className="grid grid-cols-2 gap-4">
             {trustBadges.map((b) => (
-              <div key={b.text} className="flex items-start gap-2.5">
+              <div key={b.text} className="flex items-start gap-2.5 text-center lg:text-left flex-col lg:flex-row items-center lg:items-start">
                 <b.icon size={20} className="text-primary-teal flex-shrink-0 mt-0.5" />
                 <span className="text-sm text-foreground">{b.text}</span>
               </div>
