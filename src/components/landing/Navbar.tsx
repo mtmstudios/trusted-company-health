@@ -26,7 +26,7 @@ const Navbar = () => {
         scrolled ? "shadow-[0_1px_3px_rgba(0,0,0,0.05)]" : ""
       }`}
     >
-      <div className="section-container flex items-center justify-between h-16 lg:h-[72px]">
+      <div className="section-container flex items-center justify-center lg:justify-between h-16 lg:h-[72px] relative">
         <Link to="/" className="flex items-center gap-2.5 flex-shrink-0" aria-label="Zur Startseite">
           <svg width="32" height="38" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M18 0L0 7V19C0 29.5 7.8 39.3 18 42C28.2 39.3 36 29.5 36 19V7L18 0Z" fill="hsl(var(--primary-teal))"/>
@@ -65,7 +65,7 @@ const Navbar = () => {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden text-dark-navy"
+          className="lg:hidden text-dark-navy absolute right-4"
           aria-label="Menu"
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
