@@ -42,8 +42,8 @@ const BenefitPillars = () => (
       <div className="grid md:grid-cols-3 gap-8">
         {pillars.map((p, i) => (
           <AnimatedSection key={p.title} delay={i * 0.1}>
-            <div className="bg-card rounded-2xl card-subtle p-8 h-full group hover:border-t-[3px] hover:border-t-primary transition-all duration-200">
-              <p.icon size={32} className="text-primary-teal mb-5" />
+            <div className="bg-card rounded-2xl card-subtle p-8 h-full group hover:border-t-[3px] hover:border-t-primary transition-all duration-200 text-center lg:text-left">
+              <p.icon size={32} className="text-primary-teal mb-5 mx-auto lg:mx-0" />
               <h3 className="text-lg font-semibold mb-4">{p.title}</h3>
               <ul className="space-y-2.5">
                 {p.points.map((pt) => (
