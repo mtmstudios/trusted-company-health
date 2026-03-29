@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Phone, Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
   { label: "Vorteile", href: "#vorteile" },
@@ -26,9 +27,9 @@ const Navbar = () => {
       }`}
     >
       <div className="section-container flex items-center justify-between h-16 lg:h-[72px]">
-        <a href="#" className="font-semibold text-dark-navy text-sm lg:text-base whitespace-nowrap">
+        <Link to="/" className="font-semibold text-dark-navy text-sm lg:text-base whitespace-nowrap">
           Ihre betriebliche Krankenversicherung
-        </a>
+        </Link>
 
         <div className="hidden lg:flex items-center gap-6">
           {navLinks.map((l) => (
