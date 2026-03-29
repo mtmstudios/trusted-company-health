@@ -19,7 +19,12 @@ jobs:
         run: |
           bun install
           bun run build
-          echo "DirectoryIndex index.html index.php" > dist/.htaccess
+          cat > dist/.htaccess << 'HTEOF'
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [QSA,L]
+HTEOF
 
       - name: Install paramiko
         run: pip install paramiko
