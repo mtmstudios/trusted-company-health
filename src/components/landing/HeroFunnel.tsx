@@ -34,10 +34,37 @@ const HeroFunnel = () => {
     setStep(3);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // placeholder
-    alert("Vielen Dank! Wir melden uns bei Ihnen.");
+    setIsSubmitting(true);
+    setSubmitError(false);
+    try {
+      const res = await fetch("https://mtmstudios.app.n8n.cloud/webhook/bkv-hero-funnel", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          firma: formData.firma,
+          email: formData.email,
+          telefon: formData.telefon,
+          mitarbeiter_anzahl: answers.size,
+          ziel: answers.goal,
+        }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setSubmitError(true);
+      }
+    } catch {
+      setSubmitError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -125,66 +152,84 @@ const HeroFunnel = () => {
 
               {step === 3 && (
                 <motion.div key="s3" {...slideVariants} transition={{ duration: 0.25, ease: "easeInOut" }}>
-                  <h3 className="text-xl font-semibold mb-4 text-center">
-                    Fast geschafft! Ihre kostenlose Beratung anfordern
-                  </h3>
-                  <div className="flex flex-wrap gap-2 mb-5 justify-center">
-                    {answers.size && (
-                      <span className="text-xs bg-light-teal text-primary-teal rounded-full px-3 py-1">
-                        {answers.size}
-                      </span>
-                    )}
-                    {answers.goal && (
-                      <span className="text-xs bg-light-teal text-primary-teal rounded-full px-3 py-1">
-                        {answers.goal}
-                      </span>
-                    )}
-                  </div>
-                  <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                    <input
-                      type="text"
-                      placeholder="Name"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="rounded-lg border border-input bg-transparent px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Firmenname"
-                      required
-                      value={formData.firma}
-                      onChange={(e) => setFormData({ ...formData, firma: e.target.value })}
-                      className="rounded-lg border border-input bg-transparent px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200"
-                    />
-                    <input
-                      type="email"
-                      placeholder="E-Mail"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="rounded-lg border border-input bg-transparent px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200"
-                    />
-                    <input
-                      type="tel"
-                      placeholder="Telefon"
-                      value={formData.telefon}
-                      onChange={(e) => setFormData({ ...formData, telefon: e.target.value })}
-                      className="rounded-lg border border-input bg-transparent px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200"
-                    />
-                    <button
-                      type="submit"
-                      className="w-full rounded-full bg-primary text-primary-foreground font-semibold py-3.5 text-sm hover:bg-secondary-teal hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 mt-1"
-                    >
-                      Jetzt kostenlose Beratung anfordern →
-                    </button>
-                    <p className="text-xs text-muted-foreground text-center mt-1">
-                      🔒 Ihre Daten sind sicher. Kein Spam. Keine Weitergabe.
-                    </p>
-                  </form>
-                  <button onClick={() => setStep(2)} className="mt-4 text-sm text-primary-teal hover:underline">
-                    ← Zurück
-                  </button>
+                  {submitted ? (
+                    <div className="text-center py-4">
+                      <div className="text-4xl mb-4">✅</div>
+                      <h3 className="text-xl font-semibold mb-2">Anfrage eingegangen!</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Vielen Dank, <strong>{formData.name}</strong>! Sie erhalten gleich eine Bestätigung per E-Mail. David Felzmann meldet sich innerhalb von 24 Stunden.
+                      </p>
+                    </div>
+                  ) : (
+                    <>
+                      <h3 className="text-xl font-semibold mb-4 text-center">
+                        Fast geschafft! Ihre kostenlose Beratung anfordern
+                      </h3>
+                      <div className="flex flex-wrap gap-2 mb-5 justify-center">
+                        {answers.size && (
+                          <span className="text-xs bg-light-teal text-primary-teal rounded-full px-3 py-1">
+                            {answers.size}
+                          </span>
+                        )}
+                        {answers.goal && (
+                          <span className="text-xs bg-light-teal text-primary-teal rounded-full px-3 py-1">
+                            {answers.goal}
+                          </span>
+                        )}
+                      </div>
+                      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                        <input
+                          type="text"
+                          placeholder="Name"
+                          required
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          className="rounded-lg border border-input bg-transparent px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200"
+                        />
+                        <input
+                          type="text"
+                          placeholder="Firmenname"
+                          required
+                          value={formData.firma}
+                          onChange={(e) => setFormData({ ...formData, firma: e.target.value })}
+                          className="rounded-lg border border-input bg-transparent px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200"
+                        />
+                        <input
+                          type="email"
+                          placeholder="E-Mail"
+                          required
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="rounded-lg border border-input bg-transparent px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200"
+                        />
+                        <input
+                          type="tel"
+                          placeholder="Telefon"
+                          value={formData.telefon}
+                          onChange={(e) => setFormData({ ...formData, telefon: e.target.value })}
+                          className="rounded-lg border border-input bg-transparent px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200"
+                        />
+                        {submitError && (
+                          <p className="text-xs text-red-500 text-center">
+                            Fehler beim Senden. Bitte versuchen Sie es erneut oder rufen Sie uns an.
+                          </p>
+                        )}
+                        <button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="w-full rounded-full bg-primary text-primary-foreground font-semibold py-3.5 text-sm hover:bg-secondary-teal hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 mt-1 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
+                        >
+                          {isSubmitting ? "Wird gesendet..." : "Jetzt kostenlose Beratung anfordern →"}
+                        </button>
+                        <p className="text-xs text-muted-foreground text-center mt-1">
+                          🔒 Ihre Daten sind sicher. Kein Spam. Keine Weitergabe.
+                        </p>
+                      </form>
+                      <button onClick={() => setStep(2)} className="mt-4 text-sm text-primary-teal hover:underline">
+                        ← Zurück
+                      </button>
+                    </>
+                  )}
                 </motion.div>
               )}
             </AnimatePresence>
