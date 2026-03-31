@@ -3,38 +3,44 @@ import { createClient, SupabaseClient } from "@supabase/supabase-js";
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string | undefined;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
 
-// Only create the client when both env vars are present; otherwise provide a
-// dummy so the landing page still renders without a backend.
+function createDummyClient(): SupabaseClient {
+  const noopChain: any = new Proxy({}, {
+    get() {
+      return (..._args: any[]) => noopChain;
+    },
+  });
+  // Make the chain thenable so await / .then() works
+  noopChain.then = (resolve: any) => Promise.resolve({ data: null, error: null, count: 0 }).then(resolve);
+
+  const authMethods: Record<string, any> = {
+    getSession: () => Promise.resolve({ data: { session: null }, error: null }),
+    getUser: () => Promise.resolve({ data: { user: null }, error: null }),
+    onAuthStateChange: () => ({ data: { subscription: { unsubscribe() {} } } }),
+    signInWithPassword: () => Promise.resolve({ data: { session: null, user: null }, error: null }),
+    signUp: () => Promise.resolve({ data: { session: null, user: null }, error: null }),
+    signOut: () => Promise.resolve({ error: null }),
+    resetPasswordForEmail: () => Promise.resolve({ data: null, error: null }),
+    updateUser: () => Promise.resolve({ data: { user: null }, error: null }),
+  };
+
+  return new Proxy({} as SupabaseClient, {
+    get(_target, prop) {
+      if (prop === "auth") {
+        return new Proxy({} as any, {
+          get(_t, method: string) {
+            return authMethods[method] ?? ((..._args: any[]) => Promise.resolve({ data: null, error: null }));
+          },
+        });
+      }
+      if (prop === "from") {
+        return () => noopChain;
+      }
+      return () => {};
+    },
+  }) as unknown as SupabaseClient;
+}
+
 export const supabase: SupabaseClient =
   supabaseUrl && supabaseAnonKey
     ? createClient(supabaseUrl, supabaseAnonKey)
-    : (new Proxy({} as SupabaseClient, {
-        get(_target, prop) {
-          // auth.onAuthStateChange must return a subscription-like object
-          if (prop === "auth") {
-            return new Proxy({} as any, {
-              get() {
-                return (..._args: any[]) => ({ data: { subscription: { unsubscribe() {} } }, error: null });
-              },
-            });
-          }
-          // .from(...) chains
-          if (prop === "from") {
-            const chain: any = {
-              select: () => chain,
-              insert: () => chain,
-              update: () => chain,
-              delete: () => chain,
-              eq: () => chain,
-              neq: () => chain,
-              order: () => chain,
-              limit: () => chain,
-              single: () => chain,
-              maybeSingle: () => chain,
-              then: (resolve: any) => resolve({ data: null, error: null, count: 0 }),
-            };
-            return () => chain;
-          }
-          return () => {};
-        },
-      }) as unknown as SupabaseClient);
+    : createDummyClient();
