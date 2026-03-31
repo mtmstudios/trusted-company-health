@@ -78,7 +78,7 @@ const HeroFunnel = () => {
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-background/70" aria-hidden="true" />
+      <div className="absolute inset-0 bg-background/50" aria-hidden="true" />
       <div className="section-container grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         {/* Left */}
         <AnimatedSection>
