@@ -68,10 +68,7 @@ const HeroFunnel = () => {
   };
 
   return (
-    <section
-      className="relative mt-16 flex min-h-[calc(100vh-64px)] items-center overflow-hidden py-12 lg:mt-[72px] lg:min-h-[calc(100vh-72px)] lg:py-16"
-      style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)', maxWidth: 'none' }}
-    >
+    <section className="relative mt-16 flex min-h-[calc(100vh-64px)] w-full items-center overflow-hidden py-12 lg:mt-[72px] lg:min-h-[calc(100vh-72px)] lg:py-16">
       <img
         src={officeImg}
         alt=""
