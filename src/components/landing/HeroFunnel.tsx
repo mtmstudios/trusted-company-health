@@ -68,11 +68,15 @@ const HeroFunnel = () => {
   };
 
   return (
-    <section className="relative mt-16 flex min-h-[calc(100vh-64px)] w-full items-center overflow-hidden py-12 lg:mt-[72px] lg:min-h-[calc(100vh-72px)] lg:py-16">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${officeImg})` }}
+    <section
+      className="relative mt-16 flex min-h-[calc(100vh-64px)] items-center overflow-hidden py-12 lg:mt-[72px] lg:min-h-[calc(100vh-72px)] lg:py-16"
+      style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)', maxWidth: 'none' }}
+    >
+      <img
+        src={officeImg}
+        alt=""
         aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-background/70" aria-hidden="true" />
       <div className="section-container grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
