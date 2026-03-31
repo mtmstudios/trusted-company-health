@@ -40,8 +40,13 @@ const StuttgartHero = () => {
   };
 
   return (
-    <section className="pt-24 lg:pt-32 pb-16 lg:pb-24 bg-gradient-to-b from-background to-light-gray relative overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.12]" style={{ backgroundImage: `url(${officeImg})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+    <section className="relative left-1/2 mt-16 flex min-h-[calc(100vh-64px)] w-screen -translate-x-1/2 items-center overflow-hidden py-12 lg:mt-[72px] lg:min-h-[calc(100vh-72px)] lg:py-16">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${officeImg})` }}
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-background/70" aria-hidden="true" />
       <div className="section-container grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         {/* Left */}
         <AnimatedSection>
