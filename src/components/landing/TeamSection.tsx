@@ -8,7 +8,7 @@ const team = [
   { name: "Claudia Haidle", role: "Büroleitung" },
   { name: "Michaela Bäurle", role: "Vertriebsunterstützung" },
   { name: "Frank Frey", role: "Vertriebsunterstützung" },
-  { name: "Bastian Zaremba", role: "Auszubildender" },
+  
 ];
 
 const TeamSection = () => (
