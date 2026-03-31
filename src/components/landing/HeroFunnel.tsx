@@ -68,7 +68,7 @@ const HeroFunnel = () => {
   };
 
   return (
-    <section className="pt-24 lg:pt-32 pb-16 lg:pb-24 bg-gradient-to-b from-background to-light-gray relative overflow-hidden">
+    <section className="min-h-screen flex items-center pt-24 pb-16 bg-gradient-to-b from-background to-light-gray relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.12]" style={{ backgroundImage: `url(${officeImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
       <div className="section-container grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         {/* Left */}
