@@ -3,19 +3,34 @@ import AnimatedSection from "./AnimatedSection";
 
 const testimonials = [
   {
-    quote: "Die Einführung der bKV war unkompliziert und schnell. Unsere Mitarbeiter waren begeistert – ein echtes Plus für unser Unternehmen.",
-    name: "Thomas K.",
-    role: "Geschäftsführer, 28 Mitarbeiter",
+    quote: "Seit vielen Jahren bin ich Kunde bei der Württembergischen Versicherung in Wernau und fühle mich bei Herrn David Felzmann rundum bestens betreut. Er nimmt sich immer die Zeit, meine Anliegen ausführlich zu erklären und findet zuverlässige, individuelle Lösungen.",
+    name: "Florian Hasani",
+    role: "Kunde, vor 6 Monaten",
   },
   {
-    quote: "Keine Gesundheitsprüfung, kein bürokratischer Aufwand. Die Betreuung durch das Team war hervorragend und persönlich.",
-    name: "Sandra M.",
-    role: "HR-Leiterin, 65 Mitarbeiter",
+    quote: "Toller Service und Erreichbarkeit. Fragen werden kompetent beantwortet. Bisher wurde alles schnell zu meiner Zufriedenheit geklärt. Das komplette Büro ist Mega freundlich. Hier steht der Kunde noch im Vordergrund.",
+    name: "Robeer Steinerbrunner",
+    role: "Kunde, vor 2 Monaten",
   },
   {
-    quote: "Seit wir die bKV anbieten, hat sich unsere Mitarbeiterbindung deutlich verbessert. Die Kosten sind überschaubar, der Nutzen enorm.",
-    name: "Michael R.",
-    role: "Inhaber, 12 Mitarbeiter",
+    quote: "Ich fühle mich bei Herrn Felzmann und seinem Team bestens aufgehoben. Kompetente Beratung, transparente Angebote und eine angenehme Atmosphäre – genau so stellt man sich eine moderne Versicherungsagentur vor. Absolute Empfehlung!",
+    name: "Nicolay Demczenko",
+    role: "Kunde, vor 8 Monaten",
+  },
+  {
+    quote: "Herr Felzmann hat uns im schulischen Kontext kompetent und sehr ausführlich beraten und dabei die besonderen Bedürfnisse einer Schule genau im Blick gehabt. Ich kann Herrn Felzmann und die Agentur Frey bedenkenlos weiterempfehlen.",
+    name: "Frank Stedile",
+    role: "Kunde, vor 8 Monaten",
+  },
+  {
+    quote: "Ich kann David Felzmann uneingeschränkt empfehlen! Er erklärt komplexe Versicherungsfragen verständlich und geduldig. Besonders beeindruckend finde ich, wie schnell er auf Anfragen reagiert. Hier ist man definitiv in besten Händen!",
+    name: "Tim Dettenrieder",
+    role: "Kunde, vor einem Jahr",
+  },
+  {
+    quote: "Hier kann man nichts falsch machen! Herr Felzmann und sein Team sind genial! Ich durfte in den Genuss einer phänomenalen Beratung kommen, der Termin war bestens vorbereitet und es wurde genau auf meine Bedürfnisse eingegangen.",
+    name: "Dennis Kellermann",
+    role: "Kunde, vor einem Jahr",
   },
 ];
 
