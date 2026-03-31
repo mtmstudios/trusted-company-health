@@ -40,7 +40,7 @@ const Testimonials = () => (
       <AnimatedSection>
         <h2 className="text-2xl sm:text-3xl font-semibold text-center mb-12">Das sagen unsere Kunden</h2>
       </AnimatedSection>
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {testimonials.map((t, i) => (
           <AnimatedSection key={t.name} delay={i * 0.1}>
             <div className="bg-card rounded-2xl card-subtle p-8 h-full flex flex-col text-center lg:text-left">
