@@ -34,7 +34,7 @@ const App = () => (
             <AccessibilityWidget />
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/stuttgart" element={<Navigate to="/startseite/stuttgart" replace />} />
+              <Route path="/startseite" element={<Index />} />
               <Route path="/startseite/stuttgart" element={<Stuttgart />} />
               <Route path="/impressum" element={<Impressum />} />
               <Route path="/datenschutz" element={<Datenschutz />} />
