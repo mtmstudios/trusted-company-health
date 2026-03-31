@@ -49,9 +49,10 @@ export default function AdminDashboard() {
           .eq("customer_id", profile.id)
           .eq("status", "open");
 
-        const totalCalls = stats?.reduce((s, r) => s + r.total_calls, 0) ?? 0;
-        const answeredCalls = stats?.reduce((s, r) => s + r.answered_calls, 0) ?? 0;
-        const totalCostEur = stats?.reduce((s, r) => s + r.cost_eur, 0) ?? 0;
+        const typedStats = (stats ?? []) as { total_calls: number; answered_calls: number; cost_eur: number }[];
+        const totalCalls = typedStats.reduce((s, r) => s + r.total_calls, 0);
+        const answeredCalls = typedStats.reduce((s, r) => s + r.answered_calls, 0);
+        const totalCostEur = typedStats.reduce((s, r) => s + r.cost_eur, 0);
 
         return {
           profile,
