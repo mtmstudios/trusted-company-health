@@ -12,7 +12,7 @@ const faqs = [
   { q: "Gibt es Gesundheitsfragen?", a: "Je nach Vertragsgestaltung entfallen individuelle Gesundheitsfragen vollständig." },
   { q: "Sind Vorerkrankungen versichert?", a: "Ja, insbesondere über Budgettarife sind auch Vorerkrankungen abgedeckt." },
   { q: "Kann ich die Familie mitversichern?", a: "Ja, Familienangehörige können eigenfinanziert in den Versicherungsschutz einbezogen werden." },
-  { q: "Was passiert wenn ein Mitarbeiter kündigt?", a: "Der Mitarbeiter kann den Vertrag zu gleichen Konditionen ohne erneute Gesundheitsprüfung privat weiterführen." },
+  
 ];
 
 const FAQSection = () => (
