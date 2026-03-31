@@ -6,7 +6,7 @@ import officeImg from "@/assets/office-building.jpeg";
 
 const trustBadges = [
   { icon: Award, text: "Über 10 Jahre Erfahrung" },
-  { icon: Users, text: "Hunderte zufriedene Unternehmen" },
+  { icon: Users, text: "Hunderte zufriedene Kunden" },
   { icon: CheckCircle, text: "Keine Gesundheitsprüfung" },
   { icon: Lock, text: "100% kostenlose Beratung" },
 ];
