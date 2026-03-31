@@ -100,7 +100,7 @@ const HeroFunnel = () => {
 
         {/* Right — Funnel Card */}
         <AnimatedSection delay={0.15}>
-          <div className="bg-card rounded-2xl card-subtle p-6 sm:p-8">
+          <div className="bg-card rounded-2xl card-subtle p-6 sm:p-8 max-w-sm md:max-w-md lg:max-w-none mx-auto">
             {/* Progress */}
             <div className="flex items-center justify-center gap-2 mb-8">
               {[1, 2, 3].map((s) => (
